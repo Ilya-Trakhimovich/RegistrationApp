@@ -1,0 +1,27 @@
+﻿
+@model List<string>
+
+@{
+    ViewBag.Title = "Add";
+}
+
+@using (Html.BeginForm())
+{
+    < p > Name </ p >
+    @Html.TextBox("Name", "Name")
+    < p > Surname </ p >
+    @Html.TextBox("Surname", "Surname")
+    < p > PAtr </ p >
+    @Html.TextBox("Patronymic", "Patr")
+    < p > Emp </ p >
+    @Html.TextBox("EmploymentDate", "Date")
+    < p > Pos </ p >
+    @Html.TextBox("Position", "Position")
+    < p > Companies </ p >
+    @Html.DropDownList("Companies", new SelectList(Model), "Companies")
+}
+
+
+
+
+

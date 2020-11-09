@@ -1,0 +1,11 @@
+﻿@using BL.DTO
+@model EmployeeDTO
+
+<div>
+    @Html.Label("Name") - @Html.DisplayFor(m => m.Name)&nbsp;
+    @Html.Label("Surname") - @Html.DisplayFor(m => m.Surname)&nbsp;
+    @Html.Label("Patronymic") - @Html.DisplayFor(m => m.Patronymic)&nbsp;
+    @Html.Label("Position") - @Html.DisplayFor(m => m.Position)&nbsp;
+    @Html.Label("Employment date") - @Html.DisplayFor(m => m.EmploymentDate)&nbsp;
+    @Html.Label("Company") - @Html.DisplayFor(m => m.Company.CompanyName)
+</div>

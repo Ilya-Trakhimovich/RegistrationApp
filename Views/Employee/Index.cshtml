@@ -1,0 +1,82 @@
+﻿@using RegistrationApp.ViewModels
+@model EmployeeIndexVM
+
+@{
+    ViewBag.Title = "Registration page";
+}
+
+<div class="container">
+    <div class="col-md-6">
+        <div>
+            <h2 class="text-center">Employees</h2>
+        </div>
+        <div class="row">
+            @Html.ActionLink("Add employee", "AddEmployee", null, new { @class = "btn btn-warning" })
+        </div>
+        <div id="Details">
+        </div>
+        <br />
+        <table class="table">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Company</th>
+                <th scope="col">Action</th>
+            </tr>
+            @foreach (var e in Model.Employees)
+            {
+                <tr>
+                    <th scope="row">@e.Id</th>
+                    <td>
+                        <div>
+                            @Ajax.ActionLink(e.Name, "GetDetails", new { id = e.Id }, new AjaxOptions { UpdateTargetId = "Details" })
+                        </div>
+                    </td>
+                    <td>@e.Company.CompanyName</td>
+                    <td>
+                        <div>
+                            @Html.ActionLink("Delete", "DeleteEmployee", new { id = @e.Id })
+                        </div>
+                        <div>
+                            @Html.ActionLink("Update", "UpdateEmployee", new { id = e.Id })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="col-md-6">
+        <div>
+            <h2 class="text-center">Companies</h2>
+        </div>
+        <div class="row">
+            @Html.ActionLink("Add company", "AddCompany", null, new { @class = "btn btn-warning" })
+        </div>
+        <br />
+        <table class="table">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Organization form</th>
+                <th scope="col">Action</th>
+            </tr>
+            @foreach (var e in Model.Companies)
+            {
+                <tr>
+                    <th scope="row">@e.Id</th>
+                    <td>@e.CompanyName</td>
+                    <td>@e.OrganizationForm</td>
+                    <td>
+                        <div>
+                            @Html.ActionLink("Delete", "DeleteEmployee", new { id = @e.Id })
+                        </div>
+                        <div>
+                            @Html.ActionLink("Update", "UpdateEmployee", new { id = e.Id })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
